@@ -2,12 +2,12 @@
   "name": "marionette-trials",
   "version": "0.0.0",
   "dependencies": {
-    "sass-bootstrap": "~2.3.0",
+    "bootstrap": "~3.3.2",
     "jquery": "~2.1.0",
     "requirejs": "~2.1.5",
     "requirejs-text": "~2.0.5",
     "backbone-amd": "~1.1.0",
-    "underscore-amd": "~1.4.4",
+    "lodash": "~3.2.0",
     "modernizr": "~2.6.2",
     "backbone.marionette": "~2.3.2",
     "backbone.wreqr": "~0.2.0",
@@ -15,12 +15,9 @@
     "require-handlebars-plugin": "~0.4.0",
     "mocha": "~1.12.0",
     "chai": "~1.7.2",
-    "sinon": "~1.7.3"
+    "sinon": "~1.7.3",
+    "handlebars": "~3.0.0"
   },
   "devDependencies": {},
-  "directory": "lib",
-  "resolutions": {
-    "backbone.wreqr": "^1.0.0",
-    "backbone.babysitter": "^0.1.0"
-  }
+  "directory": "lib"
 }

@@ -1,48 +1,51 @@
 require.config({
-    baseUrl: "/scripts",
-    deps: ['backbone.marionette', 'bootstrap', 'main'],
+	baseUrl: "/scripts",
 
-    shim: {
-        backbone: {
-            deps: [
-                'underscore',
-                'jquery'
-            ],
-            exports: 'Backbone'
-        },
-        bootstrap: {
-            deps: ['jquery'],
-            exports: 'jquery'
-        }
-    },
+	deps: ['application', 'main'],
 
-    paths: {
-        jquery: '../lib/jquery/dist/jquery',
-        backbone: '../lib/backbone-amd/backbone',
-        underscore: '../lib/underscore-amd/underscore',
+	shim: {
+		lodash: {
+			exports: '_'
+		},
+		backbone: {
+			deps: [
+				'underscore',
+				'jquery'
+			],
+			exports: 'Backbone'
+		},
+		bootstrap: {
+			deps: ['jquery'],
+			exports: 'jquery'
+		},
+		hbs: {
+			deps: ['handlebars.runtime'],
+			exports: 'handlebars'
+		},
+		handlebarsRuntime: {
+			exports: 'handlebarsRuntime'
+		}
+	},
 
-        /* alias all marionette libs */
-        'backbone.marionette': '../lib/backbone.marionette/lib/backbone.marionette',
-        'backbone.wreqr': '../lib/backbone.wreqr/lib/amd/backbone.wreqr',
-        'backbone.babysitter': '../lib/backbone.babysitter/lib/amd/backbone.babysitter',
+	map: {
+		'tmpl': {
+			'handlebars': 'hbs'
+		}
+	},
 
-        /* alias the bootstrap js lib */
-        bootstrap: 'vendor/bootstrap',
+	paths: {
+		jquery: '../lib/jquery/dist/jquery',
+		underscore: '../lib/lodash/lodash',
+		backbone: '../lib/backbone-amd/backbone',
 
-        /* Alias text.js for template loading and shortcut the templates dir to tmpl */
-        text: '../lib/requirejs-text/text',
-        tmpl: "../templates",
+		'backbone.marionette': '../lib/backbone.marionette/lib/backbone.marionette',
 
-        /* handlebars from the require handlerbars plugin below */
-        handlebars: '../lib/require-handlebars-plugin/Handlebars',
+		hbs: 'handlebars.patch',
+		'handlebars.runtime': '../lib/handlebars/handlebars.amd',
+		text: '../lib/requirejs-text/text',
+		tmpl: '../templates/templates',
 
-        /* require handlebars plugin - Alex Sexton */
-        i18nprecompile: '../lib/require-handlebars-plugin/hbs/i18nprecompile',
-        json2: '../lib/require-handlebars-plugin/hbs/json2',
-        hbs: '../lib/require-handlebars-plugin/hbs'
-    },
-
-    hbs: {
-        disableI18n: true
-    }
+		bootstrap: '../lib/bootstrap/dist/js/bootstrap',
+		core: 'core'
+	}
 });

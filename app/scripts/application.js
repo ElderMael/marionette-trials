@@ -1,23 +1,23 @@
 define([
-	'backbone',
-	'communicator',
-	'hbs!tmpl/welcome'
-],
+	'core',
+	'views/siteHeader'
+], function(Core, SiteHeader) {
+	'use strict';
+	var RootLayout = Backbone.Marionette.LayoutView.extend({
+			el: 'body',
+			template: Core.Templates['app/templates/mainLayout.hbs'],
 
-function( Backbone, Communicator, Welcome_tmpl ) {
-    'use strict';
+			regions: {
+				header: '#header'
+			}
+		}),
+		App = new Core.Marionette.Application();
 
-	var welcomeTmpl = Welcome_tmpl;
 
-	var App = new Backbone.Marionette.Application();
-
-	/* Add application regions here */
-	App.addRegions({});
-
-	/* Add initializers here */
-	App.addInitializer( function () {
-		document.body.innerHTML = welcomeTmpl({ success: "CONGRATS!" });
-		Communicator.mediator.trigger("APP:START");
+	App.addInitializer(function() {
+		this.rootView = new RootLayout();
+		this.rootView.render();
+		this.rootView.getRegion('header').show(new SiteHeader());
 	});
 
 	return App;

@@ -6,3 +6,5 @@ app/lib
 .tmp/
 app/lib/
 node_modules/
+.idea/
+app/templates/templates.js
